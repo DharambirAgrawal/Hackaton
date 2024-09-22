@@ -1,0 +1,15 @@
+import dotenv from "dotenv";
+dotenv.config();
+
+export const configDB = {
+  database: process.env.MONGO_URI,
+  // secretKey: process.env.SECRET_KEY,
+};
+
+export const configCors = {
+  origin: process.env.ALLOWED_ORIGIN,
+  methods: ["GET", "POST", "PUT", "DELETE"], 
+  allowedHeaders: ["Content-Type", "Authorization"], 
+  credentials: true, 
+  optionsSuccessStatus: 204, 
+};

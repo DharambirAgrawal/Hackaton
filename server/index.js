@@ -1,12 +1,33 @@
-import express from "express";
 import dotenv from "dotenv";
-// import { connectDB } from "./config/db.js";
-// import { applyMiddleware } from "./middleware/middleware.js";
 dotenv.config();
-// connectDB();
-export const server = express();
-// applyMiddleware();
+import express from "express";
 
+
+export const server = express();
+
+//Connect to Database
+import {connectDB} from './src/config/db.js'
+connectDB();
+
+
+
+//Applying Midddlewares
+import { applyMiddleware } from "./src/middleware/middleware.js";
+applyMiddleware();
+
+
+//routes
+import { userRouter } from "./src/router/userRouter.js";
+  
+server.use("/api/user", userRouter);
+server.all("*", (req, res) => {
+  res.json({
+    status: "Not Found",
+  });
+}); 
+
+//Server Listening
 server.listen(process.env.PORT, () => {
+  console.log("Hello World");
   console.log("SERVER IS LISTENING...");
 });
