@@ -6,12 +6,13 @@ export default function Home() {
     e.preventDefault();
     console.log("Clicked");
     try {
-      // const data = await fetch(`${process.env.NEXT_PUBLIC_SERVERHOST}/user/signup`, {
-      // //  next: { revalidate: 60} ,
-      //   // cache: 'force-cache' 
-      // });
-      const data = await fetch(`${process.env.NEXT_PUBLIC_SERVERHOST}/user/register`,{
-         next: { revalidate: 60}});
+      const data = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVERHOST}/user/register`,
+        {
+          method: "POST",
+          next: { revalidate: 60 },
+        }
+      );
       const res = await data.json();
       console.log(res);
     } catch (err) {
