@@ -22,7 +22,7 @@ import { userRouter } from "./src/router/userRouter.js";
 server.use("/api/user", userRouter);
 server.all("*", (req, res) => {
   res.json({
-    status: "Not Found",
+    status: "Not Found User :(",
   });
 }); 
 
