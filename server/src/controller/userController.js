@@ -14,3 +14,14 @@ export const signupUser = asyncHandler(async (req, res) => {
     message: "User Sign up Successfully!!",
   });
 });
+
+export const userData = asyncHandler(async (req, res) => {
+  console.log("Returned User Data");
+  res.json({
+    data: [
+      {
+        name: "name1",
+      },
+    ],
+  });
+});
