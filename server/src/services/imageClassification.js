@@ -29,42 +29,85 @@ const stub = ClarifaiStub.grpc();
 const metadata = new grpc.Metadata();
 metadata.set("authorization", "Key " + PAT);
 
-const getImageClassification = async function(base64Image) {
-    stub.PostModelOutputs(
-        {
-            user_app_id: {
-                "user_id": USER_ID,
-                "app_id": APP_ID
-            },
-            model_id: MODEL_ID,
-            version_id: MODEL_VERSION_ID, // This is optional. Defaults to the latest model version
-            inputs: [
-                { data: { image: { base64: base64Image } } }
-            ]
-        },
-        metadata,
-        (err, response) => {
-            if (err) {
-                throw new Error(err);
-            }
-    
-            if (response.status.code !== 10000) {
-                throw new Error("Post model outputs failed, status: " + response.status.description);
-            }
-    
-            // Since we have one input, one output will exist here
-            const output = response.outputs[0];
-    
-            console.log("Predicted concepts:");
-            for (const concept of output.data.concepts) {
-                console.log(concept.name + " " + concept.value);
-            }
+// async function getImageClassification (base64Image) {
+//     console.log(base64Image)
+//     return new Promise((resolve, reject) => {
+//         stub.PostModelOutputs(
+//             {
+//                 user_app_id: {
+//                     "user_id": USER_ID,
+//                     "app_id": APP_ID
+//                 },
+//                 model_id: MODEL_ID,
+//                 version_id: MODEL_VERSION_ID,
+//                 inputs: [
+//                     { data: { image: { base64: base64Image } } }
+//                 ]
+//             },
+//             metadata,
+//             (err, response) => {
+//                 if (err) {
+//                     return reject(err); // Reject the Promise with the error
+//                 }
 
-            return output.data
-        }
+//                 if (response.status.code !== 10000) {
+//                     return reject(new Error("Post model outputs failed, status: " + response.status.description));
+//                 }
+
+//                 // Since we have one input, one output will exist here
+//                 const output = response.outputs[0];
+                
+//                 // Log the predicted concepts
+//                 const concepts = output.data.concepts.map(concept => ({
+//                     name: concept.name,
+//                     value: concept.value,
+//                 }));
+
+//                 console.log("Predicted concepts:", concepts);
+                
+//                 resolve(concepts); // Resolve the Promise with the concepts
+//             }
+//         );
+//     });
+// }
+
+// export default getImageClassification
+
+
+async function getPredictedConcepts(base64Image) {
+    //console.log(base64Image)
     
-    );
-    
+    return new Promise((resolve, reject) => {
+        stub.PostModelOutputs(
+            {
+                user_app_id: {
+                    "user_id": USER_ID,
+                    "app_id": APP_ID
+                },
+                model_id: MODEL_ID,
+                version_id: MODEL_VERSION_ID, // This is optional. Defaults to the latest model version
+                inputs: [
+                    { data: { image: { base64: base64Image } } }
+                ]
+            },
+            metadata,
+            (err, response) => {
+                if (err) {
+                    return reject(err);
+                }
+
+                if (response.status.code !== 10000) {
+                    return reject(new Error("Post model outputs failed, status: " + response.status.description));
+                }
+
+                // Extract predicted concept names into an array
+                const output = response.outputs[0];
+                const concepts = output.data.concepts.map(concept => concept.name);
+                
+                resolve(concepts); // Return the array of concept names
+            }
+        );
+    });
 }
 
-export default getImageClassification
+export default getPredictedConcepts

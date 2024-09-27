@@ -1,5 +1,4 @@
-
-//index.js file
+// index.js file
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // In this section, we set the user authentication, user and app ID, model details, and the URL
@@ -21,7 +20,7 @@ const IMAGE_URL = 'https://s1.1zoom.me/b4251/376/Fast_food_Hamburger_Pizza_Hot_d
 // YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
 ///////////////////////////////////////////////////////////////////////////////////
 
-import { ClarifaiStub, grpc }  from "clarifai-nodejs-grpc"
+import { ClarifaiStub, grpc } from "clarifai-nodejs-grpc";
 
 const stub = ClarifaiStub.grpc();
 
@@ -29,35 +28,45 @@ const stub = ClarifaiStub.grpc();
 const metadata = new grpc.Metadata();
 metadata.set("authorization", "Key " + PAT);
 
-stub.PostModelOutputs(
-    {
-        user_app_id: {
-            "user_id": USER_ID,
-            "app_id": APP_ID
-        },
-        model_id: MODEL_ID,
-        version_id: MODEL_VERSION_ID, // This is optional. Defaults to the latest model version
-        inputs: [
-            { data: { image: { url: IMAGE_URL, allow_duplicate_url: true } } }
-        ]
-    },
-    metadata,
-    (err, response) => {
-        if (err) {
-            throw new Error(err);
-        }
+async function getPredictedConcepts() {
+    return new Promise((resolve, reject) => {
+        stub.PostModelOutputs(
+            {
+                user_app_id: {
+                    "user_id": USER_ID,
+                    "app_id": APP_ID
+                },
+                model_id: MODEL_ID,
+                version_id: MODEL_VERSION_ID, // This is optional. Defaults to the latest model version
+                inputs: [
+                    { data: { image: { url: IMAGE_URL, allow_duplicate_url: true } } }
+                ]
+            },
+            metadata,
+            (err, response) => {
+                if (err) {
+                    return reject(err);
+                }
 
-        if (response.status.code !== 10000) {
-            throw new Error("Post model outputs failed, status: " + response.status.description);
-        }
+                if (response.status.code !== 10000) {
+                    return reject(new Error("Post model outputs failed, status: " + response.status.description));
+                }
 
-        // Since we have one input, one output will exist here
-        const output = response.outputs[0];
+                // Extract predicted concept names into an array
+                const output = response.outputs[0];
+                const concepts = output.data.concepts.map(concept => concept.name);
+                
+                resolve(concepts); // Return the array of concept names
+            }
+        );
+    });
+}
 
-        console.log("Predicted concepts:");
-        for (const concept of output.data.concepts) {
-            console.log(concept.name);
-        }
-    }
-
-);
+// Example usage
+getPredictedConcepts()
+    .then(concepts => {
+        console.log("Predicted concepts:", concepts);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
