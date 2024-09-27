@@ -265,9 +265,10 @@ export const Gallery = ({ information }: { information: any }) => {
   //     },
   //   ],
   // };
-
+  console.log(information);
   return (
     <div className="container mx-auto p-6">
+      <pre>{JSON.stringify(information, null, 2)}</pre>
       {/* Section for Ingredients */}
       <div className="bg-gray-100 p-4 rounded-md shadow-md mb-6">
         <h2 className="text-2xl font-semibold mb-4">Ingredients</h2>
