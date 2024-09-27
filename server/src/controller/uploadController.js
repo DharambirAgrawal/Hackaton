@@ -1,5 +1,6 @@
 import asyncHandler from "express-async-handler";
-import getImageClassification from "../services/imageClassification.js";
+// import getImageClassification from "../services/imageClassification.js";
+import getPredictedConcepts from "../services/imageClassification.js";
 
 
 export const handleUploadedImage = asyncHandler(async function (req, res){
@@ -16,14 +17,21 @@ export const handleUploadedImage = asyncHandler(async function (req, res){
     try {
         
         const base64Image = req.file.buffer.toString('base64');
-        print(base64Image)
+        // print(base64Image)
 
-        ouput = getImageClassification(base64Image)
+        getPredictedConcepts(base64Image).then(response => {
+            console.log(response)
+
+            res.status(200).json({
+                success: true,
+                data: response,
+            });
+        })
+
+        console.log(ouput)
+        
         // Respond with success
-        res.status(200).json({
-            success: true,
-            data: ouput,
-        });
+         
 
         
       }catch {
