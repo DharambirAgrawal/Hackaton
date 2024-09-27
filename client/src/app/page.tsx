@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import Hero from "@/components/Home/Hero";
+import TeamSection from "@/components/Home/TeamSection";
 
 export default function Home() {
   const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -21,11 +22,12 @@ export default function Home() {
     }
   };
   return (
-    <div>
+    <main>
       <Hero />
       <Button onClick={handleClick} className=" bg-red-400">
-        Click me{" "}
+        Click me
       </Button>
-    </div>
+      <TeamSection />
+    </main>
   );
 }
