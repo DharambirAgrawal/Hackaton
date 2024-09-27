@@ -7,7 +7,7 @@ export const configDB = {
 };
 
 export const configCors = {
-  origin: process.env.ALLOWED_ORIGIN,
+  origin: [process.env.ALLOWED_ORIGIN, process.env.ALLOWED_ORIGIN2],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: [
     "Content-Type",

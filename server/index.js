@@ -4,9 +4,7 @@ import express from "express";
 
 export const server = express();
 
-//Connect to Database
-import { connectDB } from "./src/config/db.js";
-connectDB();
+
 // sudo service mongodb start
 //Applying Midddlewares
 import { applyMiddleware } from "./src/middleware/middleware.js";
@@ -15,13 +13,22 @@ server.all('*', logger)
 applyMiddleware();
 
 // Use the request logger.
-import { logger } from "./src/middleware/logger.js";
+import imageRouter from "./src/router/uploadRouter.js";
+import multer from "multer";
+
 server.all("*", logger);
 
 //routes
-import { userRouter } from "./src/router/userRouter.js";
-  
-server.use("/api/user", userRouter);
+
+const storage = multer.memoryStorage(); // Store files in memory
+const upload = multer({ storage });
+
+server.use("/api/upload", upload.single('image'), imageRouter);
+
+
+
+
+
 server.all("*", (req, res) => {
   res.json({
     status: "404 :(",
