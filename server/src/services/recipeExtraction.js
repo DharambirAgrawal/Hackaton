@@ -19,6 +19,7 @@ async function searchRecipes(ingredients) {
                 label: hit.recipe.label,
                 url: hit.recipe.url,
                 ingredients: hit.recipe.ingredientLines,
+                image: hit.recipe.image
             }))
             
 
