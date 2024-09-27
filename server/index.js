@@ -13,12 +13,13 @@ connectDB();
 
 //Applying Midddlewares
 import { applyMiddleware } from "./src/middleware/middleware.js";
+import { logger } from "./src/middleware/logger.js";
+server.all('*', logger) 
 applyMiddleware();
 
 
 //routes
-import { userRouter } from "./src/router/userRouter.js";
-  
+import { userRouter } from "./src/router/userRouter.js"; 
 server.use("/api/user", userRouter);
 server.all("*", (req, res) => {
   res.json({
