@@ -1,8 +1,8 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import Hero from "@/components/Home/Hero";
-import TeamSection from "@/components/Home/TeamSection";
-
+import Gallery from "@/components/Gallery";
+import ImageUploader from "@/components/Image-uploader";
 export default function Home() {
   const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -27,7 +27,8 @@ export default function Home() {
       <Button onClick={handleClick} className=" bg-red-400">
         Click me
       </Button>
-      <TeamSection />
+      <ImageUploader />
+      <Gallery />
     </main>
   );
 }

@@ -14,7 +14,7 @@ const Navbar = () => {
       </Link>
       <Link
         className="text-sm font-medium hover:underline underline-offset-4"
-        href="#about"
+        href="/about"
       >
         About
       </Link>
