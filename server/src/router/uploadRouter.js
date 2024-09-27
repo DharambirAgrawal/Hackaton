@@ -1,6 +1,6 @@
 import express from 'express'
 
-import { handleUploadedImage } from "../controller/someData.js";
+import { handleUploadedImage } from "../controller/uploadController.js";
 
 const imageRouter = express.Router();
 
