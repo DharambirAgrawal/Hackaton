@@ -30,6 +30,7 @@ async function searchRecipes(ingredients) {
 
     return allRecipes; // Return the array of all recipes
 }
+}
 
 // Example usage
 export default searchRecipes; // Export the function for use in other modules
