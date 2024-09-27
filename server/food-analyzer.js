@@ -56,7 +56,7 @@ stub.PostModelOutputs(
 
         console.log("Predicted concepts:");
         for (const concept of output.data.concepts) {
-            console.log(concept.name + " " + concept.value);
+            console.log(concept.name);
         }
     }
 
