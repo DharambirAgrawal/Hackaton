@@ -1,5 +1,5 @@
 import asyncHandler from "express-async-handler";
-import getImageClassification from "../services/imageClassification";
+import getImageClassification from "../services/imageClassification.js";
 
 
 const handleUploadedImage = asyncHandler(async function (req, res){

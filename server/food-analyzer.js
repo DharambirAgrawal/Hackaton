@@ -24,7 +24,7 @@ const IMAGE_URL = 'https://s1.1zoom.me/b4251/376/Fast_food_Hamburger_Pizza_Hot_d
 import { ClarifaiStub, grpc }  from "clarifai-nodejs-grpc"
 
 const stub = ClarifaiStub.grpc();
-
+let output_arr = []
 // This will be used by every Clarifai endpoint call
 const metadata = new grpc.Metadata();
 metadata.set("authorization", "Key " + PAT);
@@ -56,8 +56,10 @@ stub.PostModelOutputs(
 
         console.log("Predicted concepts:");
         for (const concept of output.data.concepts) {
-            console.log(concept.name);
+           output_arr.push(concept) ;
         }
     }
 
 );
+
+export default output_arr
