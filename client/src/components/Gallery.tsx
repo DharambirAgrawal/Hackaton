@@ -284,7 +284,7 @@ export const Gallery = ({ information }: { information: any }) => {
       <div className="bg-gray-100 p-4 rounded-md shadow-md">
         <h2 className="text-2xl font-semibold mb-4">Recipes</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {information?.recipes.map((recipe: any, index: any) => (
+          {information?.recipes?.map((recipe: any, index: any) => (
             <div key={index} className="bg-white p-4 rounded-md shadow">
               <h3 className="text-xl font-semibold mb-2">{recipe.label}</h3>
               <a
@@ -296,7 +296,7 @@ export const Gallery = ({ information }: { information: any }) => {
                 View Recipe
               </a>
               <ul className="mt-4">
-                {recipe.ingredients.map((ingredient: any, i: any) => (
+                {recipe?.ingredients?.map((ingredient: any, i: any) => (
                   <li key={i} className="text-sm text-gray-700">
                     {ingredient}
                   </li>
