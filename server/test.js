@@ -13,16 +13,15 @@ const PAT = 'c7c17699bbd240058195937f219179b6';
 const USER_ID = 'clarifai';
 const APP_ID = 'main';
 // Change these to whatever model and image URL you want to use
-const MODEL_ID = 'general-image-recognition';
-const MODEL_VERSION_ID = 'aa7f35c01e0642fda5cf400f543e7c40';
-const IMAGE_URL = 'https://samples.clarifai.com/metro-north.jpg';
+const MODEL_ID = 'food-item-recognition';
+const MODEL_VERSION_ID = '1d5fd481e0cf4826aa72ec3ff049e044';
+const IMAGE_URL = 'https://s1.1zoom.me/b4251/376/Fast_food_Hamburger_Pizza_Hot_dog_Meat_products_513904_3840x2160.jpg';
 
 ///////////////////////////////////////////////////////////////////////////////////
 // YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
 ///////////////////////////////////////////////////////////////////////////////////
 
-import { ClarifaiStub, grpc } from "clarifai-nodejs-grpc";
-
+import { ClarifaiStub, grpc }  from "clarifai-nodejs-grpc"
 
 const stub = ClarifaiStub.grpc();
 
