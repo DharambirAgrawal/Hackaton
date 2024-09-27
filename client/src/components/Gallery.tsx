@@ -173,7 +173,15 @@
 // };
 
 // export default Gallery;
-
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Badge } from "@/components/ui/badge";
 export const Gallery = ({ information }: { information: any }) => {
   // const data = {
   //   ingredients: [
@@ -267,43 +275,97 @@ export const Gallery = ({ information }: { information: any }) => {
   // };
   console.log(information);
   return (
-    <div className="container mx-auto p-6">
-      {/* Section for Ingredients */}
-      <div className="bg-gray-100 p-4 rounded-md shadow-md mb-6">
-        <h2 className="text-2xl font-semibold mb-4">Ingredients</h2>
-        <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {information.ingredients?.map((ingredient: any, index: any) => (
-            <li key={index} className="p-2 bg-white rounded-md shadow">
-              {ingredient}
-            </li>
-          ))}
-        </ul>
-      </div>
+    // <div className="container mx-auto p-6">
+    //   {/* Section for Ingredients */}
+    //   <div className="bg-gray-100 p-4 rounded-md shadow-md mb-6">
+    //     <h2 className="text-2xl font-semibold mb-4">Ingredients</h2>
+    //     <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+    //       {information.ingredients?.map((ingredient: any, index: any) => (
+    //         <li key={index} className="p-2 bg-white rounded-md shadow">
+    //           {ingredient}
+    //         </li>
+    //       ))}
+    //     </ul>
+    //   </div>
 
-      {/* Section for Recipes */}
-      <div className="bg-gray-100 p-4 rounded-md shadow-md">
-        <h2 className="text-2xl font-semibold mb-4">Recipes</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {information.recipes?.map((recipe: any, index: any) => (
-            <div key={index} className="bg-white p-4 rounded-md shadow">
-              <h3 className="text-xl font-semibold mb-2">{recipe.label}</h3>
-              <a
-                href={recipe.url}
-                className="text-blue-500 underline hover:text-blue-700"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Recipe
-              </a>
-              <ul className="mt-4">
-                {recipe?.ingredients?.map((ingredient: any, i: any) => (
-                  <li key={i} className="text-sm text-gray-700">
+    //   {/* Section for Recipes */}
+    //   <div className="bg-gray-100 p-4 rounded-md shadow-md">
+    //     <h2 className="text-2xl font-semibold mb-4">Recipes</h2>
+    //     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    //       {information.recipes?.map((recipe: any, index: any) => (
+    //         <div key={index} className="bg-white p-4 rounded-md shadow">
+    //           <h3 className="text-xl font-semibold mb-2">{recipe.label}</h3>
+    //           <a
+    //             href={recipe.url}
+    //             className="text-blue-500 underline hover:text-blue-700"
+    //             target="_blank"
+    //             rel="noopener noreferrer"
+    //           >
+    //             View Recipe
+    //           </a>
+    //           <ul className="mt-4">
+    //             {recipe?.ingredients?.map((ingredient: any, i: any) => (
+    //               <li key={i} className="text-sm text-gray-700">
+    //                 {ingredient}
+    //               </li>
+    //             ))}
+    //           </ul>
+    //         </div>
+    //       ))}
+    //     </div>
+    //   </div>
+    // </div>
+    <div className="container mx-auto p-4">
+      <h1 className="text-3xl font-bold mb-6">Recipe App</h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Card className="col-span-1">
+          <CardHeader>
+            <CardTitle>Ingredients</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ScrollArea className="h-[300px]">
+              <div className="flex flex-wrap gap-2">
+                {information.ingredients?.map((ingredient: any, index: any) => (
+                  <Badge key={index} variant="secondary">
                     {ingredient}
-                  </li>
+                  </Badge>
                 ))}
-              </ul>
-            </div>
-          ))}
+              </div>
+            </ScrollArea>
+          </CardContent>
+        </Card>
+
+        <div className="col-span-1 md:col-span-2">
+          <h2 className="text-2xl font-semibold mb-4">Recipes</h2>
+          <div className="space-y-4">
+            {information.recipes?.map((recipe: any, index: any) => (
+              <Card key={index}>
+                <CardHeader>
+                  <CardTitle>{recipe.label}</CardTitle>
+                  <CardDescription>
+                    <a
+                      href={recipe.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      View Recipe
+                    </a>
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ScrollArea className="h-[200px]">
+                    <ul className="list-disc pl-5">
+                      {recipe.ingredients?.map((ingredient: any, idx: any) => (
+                        <li key={idx}>{ingredient}</li>
+                      ))}
+                    </ul>
+                  </ScrollArea>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </div>
