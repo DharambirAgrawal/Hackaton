@@ -1,34 +1,32 @@
 "use client";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import Hero from "@/components/Home/Hero";
-import Gallery from "@/components/Gallery";
 import ImageUploader from "@/components/Image-uploader";
 export default function Home() {
-  const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    console.log("Clicked");
-    try {
-      const data = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVERHOST}/user/register`,
-        {
-          method: "POST",
-          next: { revalidate: 60 },
-        }
-      );
-      const res = await data.json();
-      console.log(res);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  //   e.preventDefault();
+  //   console.log("Clicked");
+  //   try {
+  //     const data = await fetch(
+  //       `${process.env.NEXT_PUBLIC_SERVERHOST}/user/register`,
+  //       {
+  //         method: "POST",
+  //         next: { revalidate: 60 },
+  //       }
+  //     );
+  //     const res = await data.json();
+  //     console.log(res);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
   return (
     <main>
       <Hero />
-      <Button onClick={handleClick} className=" bg-red-400">
+      {/* <Button onClick={handleClick} className=" bg-red-400">
         Click me
-      </Button>
+      </Button> */}
       <ImageUploader />
-      <Gallery />
     </main>
   );
 }
