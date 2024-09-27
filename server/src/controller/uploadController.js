@@ -1,6 +1,7 @@
 import asyncHandler from "express-async-handler";
 // import getImageClassification from "../services/imageClassification.js";
 import getPredictedConcepts from "../services/imageClassification.js";
+import searchRecipes from "../services/recipeExtraction.js";
 
 
 export const handleUploadedImage = asyncHandler(async function (req, res){
@@ -19,13 +20,22 @@ export const handleUploadedImage = asyncHandler(async function (req, res){
         const base64Image = req.file.buffer.toString('base64');
         // print(base64Image)
 
-        getPredictedConcepts(base64Image).then(response => {
-            console.log(response)
+        getPredictedConcepts(base64Image).then(async concepts => {
+            console.log(concepts)
+             
+            searchRecipes(concepts).then(recipes =>{
+                console.log(recipes)
+                res.status(200).json({
+                    success: true,
+                    data: {
+                        ingredients: concepts,
+                        recipes: recipes,
 
-            res.status(200).json({
-                success: true,
-                data: response,
-            });
+                    },
+                });
+            })
+
+             
         })
 
         console.log(ouput)
