@@ -6,7 +6,7 @@ const APP_KEY = 'c9f07d926e0453653f173b5bced350c9';
 
 // Function to search for recipes based on multiple ingredients
 async function searchRecipes(ingredients) {
-    const recipesPerIngredient = 2;
+    const recipesPerIngredient = 3;
     const allRecipes = [];
 
     for (let i = 0; i < Math.min(5, ingredients.length); i++) {
