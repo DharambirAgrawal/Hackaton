@@ -19,14 +19,17 @@ async function searchRecipes(ingredients) {
                 label: hit.recipe.label,
                 url: hit.recipe.url,
                 ingredients: hit.recipe.ingredientLines,
-            }));
-            allRecipes.push(...recipes); // Add the recipes for the current ingredient to the allRecipes array
-        } catch (error) {
-            console.error(`Error fetching recipes for ${ingredient}:`, error);
-        }
+            }))
+            
+
+        return recipes; // Return the array of recipes that match the ingredients
+    } catch (error) {
+        console.error('Error fetching recipes:', error);
+        return []; // Return an empty array in case of error
     }
 
     return allRecipes; // Return the array of all recipes
+}
 }
 
 // Example usage

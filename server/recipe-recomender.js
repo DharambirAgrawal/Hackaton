@@ -15,10 +15,12 @@ async function searchRecipes(ingredients) {
 
         try {
             const response = await axios.get(url);
+           // console.log(response)
             const recipes = response.data.hits.slice(0, recipesPerIngredient).map((hit) => ({
                 label: hit.recipe.label,
                 url: hit.recipe.url,
                 ingredients: hit.recipe.ingredientLines,
+                image: hit.recipe.image
             }));
             allRecipes.push(...recipes); // Add the recipes for the current ingredient to the allRecipes array
         } catch (error) {
