@@ -1,17 +1,20 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import Hero from "@/components/Home/Hero";
+import TeamSection from "@/components/Home/TeamSection";
 
 export default function Home() {
   const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log("Clicked");
     try {
-      // const data = await fetch(`${process.env.NEXT_PUBLIC_SERVERHOST}/user/signup`, {
-      // //  next: { revalidate: 60} ,
-      //   // cache: 'force-cache' 
-      // });
-      const data = await fetch(`${process.env.NEXT_PUBLIC_SERVERHOST}/user/register`,{
-         next: { revalidate: 60}});
+      const data = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVERHOST}/user/register`,
+        {
+          method: "POST",
+          next: { revalidate: 60 },
+        }
+      );
       const res = await data.json();
       console.log(res);
     } catch (err) {
@@ -19,9 +22,12 @@ export default function Home() {
     }
   };
   return (
-    <div>
-      <h1>Hello world</h1>
-      <Button onClick={handleClick}>Click me </Button>
-    </div>
+    <main>
+      <Hero />
+      <Button onClick={handleClick} className=" bg-red-400">
+        Click me
+      </Button>
+      <TeamSection />
+    </main>
   );
 }
