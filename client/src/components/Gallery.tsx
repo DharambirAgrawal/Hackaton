@@ -268,7 +268,6 @@ export const Gallery = ({ information }: { information: any }) => {
   console.log(information);
   return (
     <div className="container mx-auto p-6">
-      <pre>{JSON.stringify(information, null, 2)}</pre>
       {/* Section for Ingredients */}
       <div className="bg-gray-100 p-4 rounded-md shadow-md mb-6">
         <h2 className="text-2xl font-semibold mb-4">Ingredients</h2>
@@ -282,10 +281,10 @@ export const Gallery = ({ information }: { information: any }) => {
       </div>
 
       {/* Section for Recipes */}
-      {/* <div className="bg-gray-100 p-4 rounded-md shadow-md">
+      <div className="bg-gray-100 p-4 rounded-md shadow-md">
         <h2 className="text-2xl font-semibold mb-4">Recipes</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {information?.recipes?.map((recipe: any, index: any) => (
+          {information.recipes?.map((recipe: any, index: any) => (
             <div key={index} className="bg-white p-4 rounded-md shadow">
               <h3 className="text-xl font-semibold mb-2">{recipe.label}</h3>
               <a
@@ -306,7 +305,7 @@ export const Gallery = ({ information }: { information: any }) => {
             </div>
           ))}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
