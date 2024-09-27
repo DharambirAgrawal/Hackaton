@@ -270,16 +270,16 @@ export const Gallery = ({ information }: { information: any }) => {
     <div className="container mx-auto p-6">
       <pre>{JSON.stringify(information, null, 2)}</pre>
       {/* Section for Ingredients */}
-      {/* <div className="bg-gray-100 p-4 rounded-md shadow-md mb-6">
+      <div className="bg-gray-100 p-4 rounded-md shadow-md mb-6">
         <h2 className="text-2xl font-semibold mb-4">Ingredients</h2>
         <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {information?.ingredients.map((ingredient: any, index: any) => (
+          {information.ingredients?.map((ingredient: any, index: any) => (
             <li key={index} className="p-2 bg-white rounded-md shadow">
               {ingredient}
             </li>
           ))}
         </ul>
-      </div> */}
+      </div>
 
       {/* Section for Recipes */}
       {/* <div className="bg-gray-100 p-4 rounded-md shadow-md">
