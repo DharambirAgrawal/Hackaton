@@ -6,18 +6,19 @@ const APP_KEY = 'c9f07d926e0453653f173b5bced350c9';
 
 // Function to search for recipes based on multiple ingredients
 async function searchRecipes(ingredients) {
-    const ingredientsQuery = ingredients.join(',');
-    console.log(ingredientsQuery)
-    const url = `https://api.edamam.com/search?q=${encodeURIComponent(ingredientsQuery)}&app_id=${APP_ID}&app_key=${APP_KEY}`;
+    const recipesPerIngredient = 1;
+    const allRecipes = [];
 
-    try {
-        const response = await axios.get(url);
-        const recipes = response.data.hits
-            .map((hit) => ({
+    for (let i = 0; i < Math.min(5, ingredients.length); i++) {
+        const ingredient = ingredients[i];
+        const url = `https://api.edamam.com/search?q=${encodeURIComponent(ingredient)}&app_id=${APP_ID}&app_key=${APP_KEY}`;
+
+        try {
+            const response = await axios.get(url);
+            const recipes = response.data.hits.slice(0, recipesPerIngredient).map((hit) => ({
                 label: hit.recipe.label,
                 url: hit.recipe.url,
                 ingredients: hit.recipe.ingredientLines,
-                image: hit.recipe.image
             }))
             
 
@@ -26,6 +27,8 @@ async function searchRecipes(ingredients) {
         console.error('Error fetching recipes:', error);
         return []; // Return an empty array in case of error
     }
+
+    return allRecipes; // Return the array of all recipes
 }
 
 // Example usage
