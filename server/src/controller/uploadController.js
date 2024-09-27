@@ -1,20 +1,18 @@
 import asyncHandler from "express-async-handler";
-import getImageClassification from "../services/imageClassification";
+import getImageClassification from "../services/imageClassification.js";
 
 
-const handleUploadedImage = asyncHandler(async function (req, res){
+export const handleUploadedImage = asyncHandler(async function (req, res){
 
     // TODO: describe mode
     //const { mode } = req.query
-
-    
 
     if (!req.file) {
         return res.status(400).send('No file uploaded.');
       }
     
       // Access the uploaded file
-
+    console.log(req.file)
     try {
         
         const base64Image = req.file.buffer.toString('base64');
