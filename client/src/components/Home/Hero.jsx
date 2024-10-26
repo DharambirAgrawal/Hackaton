@@ -6,31 +6,17 @@ const Hero = () => {
   return (
     <section className="">
       <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 md:grid-cols-2">
-        <div className="mr-auto place-self-center w-full">
-          <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl ">
+        <div className="mr-auto place-self-center w-full flex flex-col items-center">
+          <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-center">
             Welcome to Nourish Now
           </h1>
-          <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            Trust me Today's food will be delicious!
+          <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400 text-center">
+            Trust me, today's food will be delicious!
           </p>
-          <Button variant="outline">
+          <Button variant="outline" className="text-center">
             <Link href="/#image-uploader">Let's Cook</Link>
           </Button>
         </div>
-        
-        {/* 
-          // This Image is useless \\
-          <div className="lg:mt-0 lg:flex max-md:hidden justify-center ">
-          <Image
-            src={HeroImage}
-            alt="Hero image"
-            width={500}
-            height={500}
-            className="rounded shadow-lg"
-          /> 
-          </div>
-        */}
-      
       </div>
     </section>
   );
