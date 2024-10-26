@@ -78,7 +78,7 @@ export default function TeamSection() {
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-gray-600 transition-colors duration-300"
                   >
-                    <Github size={24} className="text-black fill-white rounded-full" />
+                    <Github size={16} className="text-black fill-white rounded-full" />
                     <span className="sr-only">GitHub</span>
                   </a>
                   <a
@@ -87,7 +87,7 @@ export default function TeamSection() {
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-gray-600 transition-colors duration-300"
                   >
-                    <Linkedin size={24} className="text-black fill-white" />
+                    <Linkedin size={16} className="text-black fill-white" />
                     <span className="sr-only">LinkedIn</span>
                   </a>
                 </div>
