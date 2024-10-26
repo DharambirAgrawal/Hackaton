@@ -96,10 +96,11 @@ export default function ImageUploader() {
           {file ? "Upload Image" : "Select an Image"}
         </Button>
       </div>
-      <div className="py-10 text-4xl font-bold text-center">
+      <div className="py-10 text-4xl font-bold text-center w-fit h-fit">
         <p>Recipies</p>
+        <Gallery information={data} />
       </div>
-      <Gallery information={data} /> 
+       
     </>
   );
 }
