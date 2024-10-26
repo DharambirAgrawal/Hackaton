@@ -68,10 +68,10 @@ export default function TeamSection() {
                 height={400}
                 className="w-full h-64 object-cover"
               />
-              <div className="p-6">
+              <div className="p-6 bg-white">
                 <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
                 <p className="text-gray-600 mb-4">{member.role}</p>
-                <div className="flex justify-center space-x-4">
+                <div className="flex justify-start space-x-4">
                   <a
                     href={member.github}
                     target="_blank"
