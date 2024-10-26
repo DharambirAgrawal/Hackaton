@@ -78,7 +78,7 @@ export default function TeamSection() {
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-gray-600 transition-colors duration-300"
                   >
-                    <Github size={24} className="text-white fill-white" />
+                    <Github size={24} className="fill-white" />
                     <span className="sr-only">GitHub</span>
                   </a>
                   <a
