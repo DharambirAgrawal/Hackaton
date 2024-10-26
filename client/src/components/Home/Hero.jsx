@@ -14,18 +14,23 @@ const Hero = () => {
             Trust me Today's food will be delicious!
           </p>
           <Button variant="outline">
-            <Link href="#">Let's Cook</Link>
+            <Link href="/#image-uploader">Let's Cook</Link>
           </Button>
         </div>
-        <div className="lg:mt-0 lg:flex max-md:hidden justify-center ">
+        
+        {/* 
+          // This Image is useless \\
+          <div className="lg:mt-0 lg:flex max-md:hidden justify-center ">
           <Image
             src={HeroImage}
             alt="Hero image"
             width={500}
             height={500}
             className="rounded shadow-lg"
-          />
-        </div>
+          /> 
+          </div>
+        */}
+      
       </div>
     </section>
   );

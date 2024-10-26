@@ -54,7 +54,7 @@ export default function ImageUploader() {
 
   return (
     <>
-      <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-xl">
+      <div id="#image-uploader" className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-xl">
         <div
           {...getRootProps()}
           className={`p-8 border-2 border-dashed rounded-lg text-center cursor-pointer transition-colors ${
@@ -99,7 +99,7 @@ export default function ImageUploader() {
       <div className="py-10 text-4xl font-bold text-center">
         <p>Recipies</p>
       </div>
-      <Gallery information={data} />
+      <Gallery information={data} /> 
     </>
   );
 }
