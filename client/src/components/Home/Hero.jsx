@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "../ui/button";
-import HeroImage from "../../../public/hero.jpg";
+import { Button } from "../ui/button"; 
+
+
 const Hero = () => {
   return (
     <section className="">
-      <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 md:grid-cols-2">
-        <div className="mr-auto place-self-center w-full flex flex-col items-center">
+      <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 md:grid-cols-2 bg-gray-500">
+        <div className="mr-auto place-self-center w-full flex flex-col items-center bg-slate-800">
           <h1 className="w-full mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-center">
             Welcome to Nourish Now
           </h1>
