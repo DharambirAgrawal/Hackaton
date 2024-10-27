@@ -97,7 +97,6 @@ export default function ImageUploader() {
         </Button>
       </div>
       <div className="py-10 text-4xl font-bold text-center w-fit h-fit">
-        <p>Recipies</p>
         <Gallery information={data} />
       </div>
        
