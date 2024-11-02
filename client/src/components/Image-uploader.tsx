@@ -4,13 +4,17 @@ import { Gallery } from "@/components/Gallery";
 import { Button } from "@/components/ui/button";
 import { Upload, Image as ImageIcon, Send } from "lucide-react";
 import Image from "next/image";
-import { useState, useCallback } from "react";
+import { useState, useCallback, CSSProperties } from "react";
 import { useDropzone } from "react-dropzone";
 import { X } from "lucide-react";
 import Modal from 'react-modal';
 
+interface ModalStyles {
+  overlay?: CSSProperties;
+  content?: CSSProperties;
+}
 
-const customStyles = {
+const customStyles: ModalStyles = {
   overlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.75)', // Dark overlay
   },
