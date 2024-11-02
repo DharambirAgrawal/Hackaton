@@ -11,6 +11,10 @@ import Modal from 'react-modal';
 
 
 const customStyles = {
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.75)', // Dark overlay
+  },
+
   content: {
     top: '50%',
     left: '50%',
@@ -18,6 +22,14 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    width: '80%', // Adjust width as needed
+    maxWidth: '600px', // Set a maximum width
+    height: 'auto', // You can set a specific height if needed
+    padding: '20px',
+    overflowY: 'auto',
+    borderRadius: '10px', // Rounded corners
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Shadow effect
+    backgroundColor: 'white', 
   },
 };
 
@@ -43,6 +55,7 @@ export default function ImageUploader() {
 
   function closeModal() {
     setIsOpen(false);
+    setFile(null);
   }
 
 
@@ -145,7 +158,15 @@ export default function ImageUploader() {
         contentLabel="Example Modal"
       >
         <Gallery information={data} />
-
+        <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  closeModal();
+                }}
+                className="absolute top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
+              >
+                <X size={20} />
+        </button>
       </Modal>
        
     </>
