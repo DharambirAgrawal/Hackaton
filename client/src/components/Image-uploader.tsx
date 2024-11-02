@@ -27,8 +27,8 @@ const customStyles: ModalStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     width: '80%', // Adjust width as needed
-    maxWidth: '600px', // Set a maximum width
-    height: 'auto', // You can set a specific height if needed
+    //maxWidth: '600px', // Set a maximum width
+    maxHeight: '90%', // You can set a specific height if needed
     padding: '20px',
     overflowY: 'auto',
     borderRadius: '10px', // Rounded corners
