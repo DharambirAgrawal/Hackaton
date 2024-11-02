@@ -7,9 +7,44 @@ import Image from "next/image";
 import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { X } from "lucide-react";
+import Modal from 'react-modal';
+
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
+
+
+Modal.setAppElement('body');
+
+
 export default function ImageUploader() {
   const [file, setFile] = useState<File | null>(null);
   const [data, setData] = useState<any>([]);
+
+  //let subtitle;
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    //subtitle.style.color = '#f00';
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     setFile(acceptedFiles[0]);
@@ -43,6 +78,7 @@ export default function ImageUploader() {
         const result = await response.json();
         console.log("Upload successful:", result.data);
         setData(result.data);
+        openModal();
       } catch (error) {
         console.error("Error uploading image:", error);
       } finally {
@@ -96,9 +132,21 @@ export default function ImageUploader() {
           {file ? "Upload Image" : "Select an Image"}
         </Button>
       </div>
+      
       <div className="py-10 text-4xl font-bold text-center w-fit h-fit">
         <Gallery information={data} />
       </div>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <Gallery information={data} />
+
+      </Modal>
        
     </>
   );
