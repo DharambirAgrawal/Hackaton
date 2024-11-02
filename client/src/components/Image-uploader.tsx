@@ -149,10 +149,6 @@ export default function ImageUploader() {
           {file ? "Upload Image" : "Select an Image"}
         </Button>
       </div>
-      
-      <div className="py-10 text-4xl font-bold text-center w-fit h-fit">
-        <Gallery information={data} />
-      </div>
 
       <Modal
         isOpen={modalIsOpen}
