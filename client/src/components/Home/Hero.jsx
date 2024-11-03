@@ -6,8 +6,8 @@ import { Button } from "../ui/button";
 const Hero = () => {
   return (
     <section className="">
-      <div className="grid w-full px-2 py-4 mx-auto lg:gap-8 xl:gap-0 lg:py-16 items-center justify-items-center border-2 border-dashed border-red-500">
-        <div className="w-full flex flex-col justify-center items-center border-2 border-dashed border-red-500">
+      <div className="grid w-full px-2 py-4 mx-auto lg:gap-8 xl:gap-0 lg:py-16">
+        <div className="w-full flex flex-col justify-center items-center">
           <h1 className="w-full mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-center border-2 border-dashed">
             Welcome to Nourish Now
           </h1>
