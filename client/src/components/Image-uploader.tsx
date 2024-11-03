@@ -157,14 +157,14 @@ export default function ImageUploader() {
         style={customStyles}
         contentLabel="Example Modal"
       > 
-        <div className="relative">
+        <div className="relative overflow-auto">
           <Gallery information={data} />
           <button
                   onClick={(e) => {
                     e.stopPropagation();
                     closeModal();
                   }}
-                  className="sticky top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
+                  className="fixed z-10 top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
                 >
                   <X size={20} />
           </button>
