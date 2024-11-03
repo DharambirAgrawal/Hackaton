@@ -55,7 +55,7 @@ export default function TeamSection() {
             and create groundbreaking solutions.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-center justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 items-center justify-center">
           {teamMembers.map((member) => (
             <div
               key={member.name}
