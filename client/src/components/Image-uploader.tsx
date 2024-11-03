@@ -153,20 +153,23 @@ export default function ImageUploader() {
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
+        // onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
-      >
-        <Gallery information={data} />
-        <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  closeModal();
-                }}
-                className="sticky top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
-              >
-                <X size={20} />
-        </button>
+      > 
+        <div className="relative">
+          <Gallery information={data} />
+          <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    closeModal();
+                  }}
+                  className="sticky top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
+                >
+                  <X size={20} />
+          </button>
+        </div>
+        
       </Modal>
        
     </>
