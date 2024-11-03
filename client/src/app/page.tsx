@@ -1,6 +1,7 @@
 "use client";
 // import { Button } from "@/components/ui/button";
 import Hero from "@/components/Home/Hero";
+import TeamSection from "@/components/Home/TeamSection";
 import ImageUploader from "@/components/Image-uploader";
 export default function Home() {
   // const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -27,6 +28,7 @@ export default function Home() {
         Click me
       </Button> */}
       <ImageUploader />
+      <TeamSection />
     </main>
   );
 }
