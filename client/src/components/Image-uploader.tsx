@@ -26,7 +26,7 @@ const customStyles: ModalStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    width: '80%', // Adjust width as needed
+    width: '90%', // Adjust width as needed
     //maxWidth: '600px', // Set a maximum width
     maxHeight: '90%', // You can set a specific height if needed
     padding: '20px',
@@ -106,7 +106,7 @@ export default function ImageUploader() {
   };
 
   return (
-    <section id="imageUploader" className="min-h-[80vh] sm:py-4 py-16 sm:px-2">
+    <section id="imageUploader" className="min-h-[80vh] sm:py-4 py-16 px-2">
       <div id="#image-uploader" className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-xl">
         <div
           {...getRootProps()}
