@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 
 const Hero = () => {
   return (
-    <section id="heroSection" className="h-full">
+    <section id="heroSection" className="min-h-screen">
       <div className="grid w-full px-2 py-4 mx-auto lg:gap-8 xl:gap-0 lg:py-16">
         <div className="w-full flex flex-col justify-center items-center">
           <h1 className="w-full mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-center">
@@ -15,7 +15,7 @@ const Hero = () => {
             Trust me, today's food will be delicious!
           </p>
           <Button variant="outline" className="text-center">
-            <Link href="/#image-uploader">Let's Cook</Link>
+            <Link href="#imageUploader">Let's Cook</Link>
           </Button>
         </div>
       </div>

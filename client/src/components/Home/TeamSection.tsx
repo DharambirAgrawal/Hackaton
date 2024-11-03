@@ -46,7 +46,7 @@ const teamMembers = [
 
 export default function TeamSection() {
   return (
-    <section id="teamSection" className="py-24 h-full">
+    <section id="teamSection" className="py-24 min-h-screen">
       <div className=" mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Meet Our Hackathon Team</h2>
