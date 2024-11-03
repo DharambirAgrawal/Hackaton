@@ -106,7 +106,7 @@ export default function ImageUploader() {
   };
 
   return (
-    <section id="imageUploader" className="min-h-[80vh]">
+    <section id="imageUploader" className="min-h-[80vh] sm:py-4 py-16">
       <div id="#image-uploader" className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-xl">
         <div
           {...getRootProps()}
