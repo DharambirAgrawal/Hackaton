@@ -163,7 +163,7 @@ export default function ImageUploader() {
                   e.stopPropagation();
                   closeModal();
                 }}
-                className="absolute top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
+                className="stick top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
               >
                 <X size={20} />
         </button>
