@@ -10,11 +10,11 @@ const Navbar = () => {
         className="text-sm font-medium hover:underline underline-offset-4"
         href="#teamSection"
       >
-        About
+        Team
       </Link>
       <Link
         className="text-sm font-medium hover:underline underline-offset-4"
-        href="#contact"
+        href="#teamSection"
       >
         Contact
       </Link>
