@@ -1,45 +1,44 @@
 import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
+import multer from "multer";
+
+import { applyMiddleware } from "./src/middleware/middleware.js";
+import { logger } from "./src/middleware/logger.js";
+import imageRouter from "./src/router/uploadRouter.js";
+
+// Middleware configuration
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
 export const server = express();
 
-
-// sudo service mongodb start
-//Applying Midddlewares
-import { applyMiddleware } from "./src/middleware/middleware.js";
-// import { logger } from "./src/middleware/logger.js";
-
-// server.all('*', logger) 
-
+// Apply middlewares
 applyMiddleware();
 
-// Use the request logger.
-import imageRouter from "./src/router/uploadRouter.js";
-import multer from "multer";
+server.use(logger);
 
- 
-//routes
-
-const storage = multer.memoryStorage(); // Store files in memory
-const upload = multer({ storage });
-
+// Routes
 server.use("/api/upload", upload.single('image'), imageRouter);
 
-
-
 server.all("*", (req, res) => {
-  console.log(req.url)
-  res.json({
-    status: "404 :(",
-  });
+  res.status(404).json({ status: "404 :(" });
+});
+
+const PORT = process.env.PORT;
+
+// Start listening
+server.listen(PORT, () => {
+  console.log(`SERVER IS LISTENING ON PORT ${PORT}`);
+  console.log(`http://localhost:${PORT}`);
 });
 
 
 
 
-//Server Listening
-server.listen(process.env.PORT, () => {
-  console.log("SERVER IS LISTENING...");
-  console.log(`http://localhost:${process.env.PORT}`);
-});
+
+
+
+
+
+

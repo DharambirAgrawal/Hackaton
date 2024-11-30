@@ -1,6 +1,6 @@
 import express from 'express'
 
-import { googleIt } from "../controller/someData.js";
+import { googleIt } from "../controller/googleSearchCommunications";
 
 const GoogleRouter = express.Router();
 
