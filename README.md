@@ -10,12 +10,12 @@ Nourish Now Here is a hackathon project built by a five-person team at HackGSU 2
 
 ## Features
 
-- **Drag-and-drop image upload** — drop a photo of your ingredients or a dish straight into the browser
-- **AI-powered ingredient recognition** — the image is classified with Clarifai's food-item-recognition model to extract a list of likely ingredients
-- **Recipe suggestions** — those ingredients are used to query the Edamam recipe API, returning matching recipes with links, images, and ingredient lists
-- **Results modal** — ingredients and recipes are displayed in a card-based gallery without leaving the page
-- **Light/dark theme** — theme toggle built on `next-themes`
-- **Team page** — a dedicated page introducing the team behind the project
+- **Drag-and-drop image upload**: drop a photo of your ingredients or a dish straight into the browser
+- **AI-powered ingredient recognition**: the image is classified with Clarifai's food-item-recognition model to extract a list of likely ingredients
+- **Recipe suggestions**: those ingredients are used to query the Edamam recipe API, returning matching recipes with links, images, and ingredient lists
+- **Results modal**: ingredients and recipes are displayed in a card-based gallery without leaving the page
+- **Light/dark theme**: theme toggle built on `next-themes`
+- **Team page**: a dedicated page introducing the team behind the project
 
 ## Tech Stack
 
@@ -68,16 +68,16 @@ ALLOWED_ORIGIN=http://localhost:3000
 ALLOWED_ORIGIN2=<second-allowed-origin>
 ```
 
-The Clarifai and Edamam credentials currently live directly in `server/src/services/`. If you fork this project, move them into environment variables before deploying.
+The Clarifai and Edamam credentials currently live in `server/src/services/`. If you fork this project, move them into environment variables before deploying.
 
-### Running locally
+### Running Locally
 
 ```bash
-# Terminal 1 — start the API server
+# Terminal 1: start the API server
 cd server
 npm start
 
-# Terminal 2 — start the Next.js client
+# Terminal 2: start the Next.js client
 cd client
 npm run dev
 ```
